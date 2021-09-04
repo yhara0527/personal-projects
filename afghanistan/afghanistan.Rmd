@@ -1,0 +1,48 @@
+---
+title: "afghanistan"
+author: "Yusei Hara"
+date: "2021/8/29"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Libraries
+```{r}
+library(ggplot2)
+library(tidyverse)
+library(plotly)
+library(dplyr)
+library(leaflet)
+# library(mapdeck)
+```
+
+## Data Download
+```{r}
+# df <- read.csv("E:/Data/Afghanistan/conflict-data-for-afghanistan-2-new.csv")
+# saveRDS(df,"df_afghanistan")
+df <- readRDS("df_afghanistan")
+```
+```{r}
+View(df)
+```
+```{r}
+df %>% str()
+```
+```{r}
+leaflet() %>% 
+  addTiles() %>% 
+  setView(mean(df$longitude),mean(df$latitude),zoom = 5) %>% 
+  add
+
+```
+
+
+
+
+
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
